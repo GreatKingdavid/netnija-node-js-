@@ -1,5 +1,25 @@
 {
-  "devDependencies": {
-    "@types/node": "^25.0.3"
-  }
+  "name": "netnija-node-js-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^5.2.1",
+    "lodash": "^4.17.21",
+    "undici-types": "^7.16.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreatKingdavid/netnija-node-js-.git"
+  },
+  "author": "Kingdavid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GreatKingdavid/netnija-node-js-/issues"
+  },
+  "homepage": "https://github.com/GreatKingdavid/netnija-node-js-#readme"
 }

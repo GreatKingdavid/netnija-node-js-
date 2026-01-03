@@ -1,8 +1,11 @@
 const http = require("http");
 const fs = require("fs");
+const _ = require("lodash")
 
 const server = http.createServer((req, res) => {
-  console.log(req.url, req.method);
+  const num = _.random(0, 30);
+  console.log(num);
+  
 
   let path = "./view/";
   switch (req.url) {
@@ -42,5 +45,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, "localhost", () => {
-  console.log("listining for reqest on port 30000");
+  console.log("listining for reqest on port 3000");
 });
