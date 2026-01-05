@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blog site | <%= title %></title>
+    </head>
+    <body>
+        <nav>
+            <div>
+                <a href="/">Blog site</a>
+                <p>A David Blog</p>
+            </div>
+            <ul>
+                <li><a href="/">Blogs</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blogs/create">New Blog</a></li>
+            </ul>
+        </nav>
         <div>
-            <a href="/">Blog site</a>
-            <p>A David Blog</p>
-        </div>
-        <ul>
-            <li><a href="/">Blogs</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-    </nav>
-<div>
-    <h1>All blogs</h1>
-</div>
+            <h1>All blogs</h1>
+             <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
 
-</body>
+        <h3 class="title"><%= blog.title %></h3>
+        <p class="snippet"><%= blog.snippet %></p>
+
+      <% }) %>
+    <% } else { %>
+      <p>There are no blogs to display...</p>
+    <% } %>
+    
+        </div>
+
+    </body>
 </html>
