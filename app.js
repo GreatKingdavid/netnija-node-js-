@@ -10,21 +10,21 @@ app.listen(3000);
 
 // responds to browser request
 app.get("/", (req, res) => {
-  res.sendFile("./view/index.html", {root: __dirname});
+  res.render('index');
 })
 
 app.get("/about", (req, res) => {
-  res.sendFile("./view/about.html", {root: __dirname});
+  res.render('about');
 });
 
-// redirect
-app.get("/about-me", (req, res)=>{
-    res.redirect('/about');
+
+app.get("/blogs/create", (req, res)=>{
+    res.render('create');
 })
 
 //404 page
 app.use((req,res)=>{
-    res.status(404).sendFile("./view/404.html", {root: __dirname});
+    res.status(404).render('404');
 })
 
 
