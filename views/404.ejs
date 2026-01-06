@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog site | <%= title %></title>
-</head>
+<%- include('../views/parcials/head.ejs')  %>
 <body>
-    <nav>
-        <div>
-            <a href="/">Blog site</a>
-            <p>A David Blog</p>
-        </div>
-        <ul>
-            <li><a href="/">Blogs</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-    </nav>
+    <%- include('../views/parcials/nav.ejs') %>
 
-    <div>
+    <div class="not-found content">
         <p>
             Opss page not found :)
         </p>
     </div>
+
+    <%- include('../views/parcials/footer.ejs') %>
 </body>
 </html>

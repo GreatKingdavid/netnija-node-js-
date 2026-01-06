@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blog site | <%= title %></title>
-    </head>
+    <%- include('../views/parcials/head.ejs')  %>
     <body>
-        <nav>
-            <div>
-                <a href="/">Blog site</a>
-                <p>A David Blog</p>
-            </div>
-            <ul>
-                <li><a href="/">Blogs</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blogs/create">New Blog</a></li>
-            </ul>
-        </nav>
-        <div>
+
+        <%- include('../views/parcials/nav.ejs') %>
+
+
+        <div class="blogs content">
             <h1>All blogs</h1>
-             <% if (blogs.length > 0) { %>
-      <% blogs.forEach(blog => { %>
+            <% if (blogs.length > 0) { %>
+            <% blogs.forEach(blog => { %>
 
-        <h3 class="title"><%= blog.title %></h3>
-        <p class="snippet"><%= blog.snippet %></p>
+            <h3 class="title"><%= blog.title %></h3>
+            <p class="snippet"><%= blog.snippet %></p>
 
-      <% }) %>
-    <% } else { %>
-      <p>There are no blogs to display...</p>
-    <% } %>
-    
+            <% }) %>
+            <% } else { %>
+            <p>There are no blogs to display...</p>
+            <% } %>
+
         </div>
+
+            <%- include('../views/parcials/footer.ejs') %>
 
     </body>
 </html>
