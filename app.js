@@ -1,47 +1,39 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Blog = require("./modules/blog");
 
 //set up an express add
 const app = express();
 
+const dbURI = "mongodb+srv://Major_David:code2002042@nodejsblog.h1byyjb.mongodb.net/?appName=NinjaBlog";
 
+mongoose.connect(dbURI)
+  .then(result => app.listen(3000))
+  .catch(err => console.log(err));
 
-const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri =
-  "mongodb+srv://Major_David:code2002042@nodejsblog.h1byyjb.mongodb.net/?appName=NodejsBlog";
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
-
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB!"
-    );
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
 
 app.set("view engine", "ejs");
 
-//listen for requests
-app.listen(3000);
+
 
 //middelware and static files
 app.use(express.static("Public"));
+
+app.get('/add-blog', (req, res) => {
+  const blog = new Blog({
+    title: "A new Blog",
+    snippet: "About my new Blog",
+    body: "More about the new Blog",
+  });
+
+  blog.save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 // responds to browser request
 app.use((req, res, next) => {
